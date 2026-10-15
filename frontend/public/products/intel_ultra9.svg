@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg_intel" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e1a2f" />
+      <stop offset="60%" stop-color="#0c121e" />
+      <stop offset="100%" stop-color="#0b0d10" />
+    </radialGradient>
+    <linearGradient id="ihs_intel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="40%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <linearGradient id="intel_blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0068B5" />
+      <stop offset="100%" stop-color="#72A7FF" />
+    </linearGradient>
+    <filter id="shadow_intel" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg_intel)" />
+  <g filter="url(#shadow_intel)">
+    <!-- Substrate PCB (LGA1851 rectangular) -->
+    <rect x="165" y="135" width="270" height="330" rx="10" fill="#111c2e" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4"/>
+    <!-- Heatspreader -->
+    <rect x="185" y="155" width="230" height="290" rx="8" fill="url(#ihs_intel)" stroke="#475569" stroke-width="2"/>
+    <rect x="200" y="170" width="200" height="260" rx="6" fill="#1e293b" opacity="0.12"/>
+    <!-- Laser Engraving -->
+    <text x="300" y="235" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="800" fill="url(#intel_blue)" text-anchor="middle" letter-spacing="4">INTEL CORE</text>
+    <text x="300" y="275" font-family="'JetBrains Mono', monospace" font-size="28" font-weight="900" fill="#f8fafc" text-anchor="middle" letter-spacing="2">ULTRA 9</text>
+    <text x="300" y="315" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#72A7FF" text-anchor="middle" letter-spacing="3">285K</text>
+    <text x="300" y="355" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="1">24-CORE &bull; LION COVE &bull; NPU BOOST</text>
+    <text x="300" y="385" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="500" fill="#64748b" text-anchor="middle">LGA1851 &bull; UNLOCKED &bull; 5.7GHz</text>
+    <!-- Alignment Notch -->
+    <circle cx="178" cy="148" r="5" fill="#38bdf8" />
+  </g>
+  <text x="300" y="520" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#929BA8" text-anchor="middle" letter-spacing="2">ARROW LAKE ENTHUSIAST PROCESSOR</text>
+</svg>

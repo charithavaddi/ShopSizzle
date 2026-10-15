@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg_ryzen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#241812" />
+      <stop offset="60%" stop-color="#141112" />
+      <stop offset="100%" stop-color="#0b0d10" />
+    </radialGradient>
+    <linearGradient id="ihs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <linearGradient id="pcb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a1e" />
+      <stop offset="100%" stop-color="#0e1f0e" />
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ED6C1B" />
+      <stop offset="100%" stop-color="#F2B85B" />
+    </linearGradient>
+    <filter id="shadow_cpu" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg_ryzen)" />
+  <g filter="url(#shadow_cpu)">
+    <!-- Substrate PCB -->
+    <rect x="150" y="150" width="300" height="300" rx="14" fill="url(#pcb)" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.4"/>
+    <!-- Gold Contact pads pattern -->
+    <circle cx="168" cy="168" r="6" fill="#fbbf24" opacity="0.8"/>
+    <!-- Metal Heat Spreader (Octopus Cutout style AM5) -->
+    <rect x="180" y="180" width="240" height="240" rx="10" fill="url(#ihs)" stroke="#475569" stroke-width="2"/>
+    <rect x="200" y="200" width="200" height="200" rx="6" fill="#334155" opacity="0.15"/>
+    <!-- Laser Etching Text -->
+    <text x="300" y="245" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="url(#orange)" text-anchor="middle" letter-spacing="3">AMD RYZEN</text>
+    <text x="300" y="285" font-family="'JetBrains Mono', monospace" font-size="26" font-weight="900" fill="#f8fafc" text-anchor="middle" letter-spacing="2">9 9950X</text>
+    <text x="300" y="325" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="1">16-CORE &bull; 32-THREAD &bull; 5.7GHz</text>
+    <text x="300" y="355" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="500" fill="#64748b" text-anchor="middle">AM5 ARCHITECTURE &bull; DIFFUSED IN TAIWAN</text>
+    <!-- Alignment indicator triangle -->
+    <polygon points="190,190 205,190 190,205" fill="#fbbf24" />
+  </g>
+  <text x="300" y="520" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#929BA8" text-anchor="middle" letter-spacing="2">ZEN 5 FLAGSHIP DESKTOP PROCESSOR</text>
+</svg>

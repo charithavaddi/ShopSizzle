@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Database Service: PostgreSQL
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:15-alpine
+    container_name: fincommerce-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME:-fincommercedb}
+      POSTGRES_USER: ${DB_USER:-finadmin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-finadminpassword}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - fincommerce-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-finadmin} -d ${DB_NAME:-fincommercedb}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Cache & Lock Service: Redis
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: fincommerce-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - fincommerce-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Express Backend API Service
+  # ---------------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fincommerce-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      NODE_ENV: production
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-fincommercedb}
+      DB_USER: ${DB_USER:-finadmin}
+      DB_PASSWORD: ${DB_PASSWORD:-finadminpassword}
+      DATABASE_URL: postgres://${DB_USER:-finadmin}:${DB_PASSWORD:-finadminpassword}@postgres:5432/${DB_NAME:-fincommercedb}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:-super_secret_jwt_fincommerce_key_2026}
+      JWT_EXPIRES_IN: 24h
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - fincommerce-network
+
+  # ---------------------------------------------------------------------------
+  # Vite/React Frontend Service
+  # ---------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fincommerce-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - fincommerce-network
+
+# -----------------------------------------------------------------------------
+# Networks & Persistent Volumes Definition
+# -----------------------------------------------------------------------------
+networks:
+  fincommerce-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-app text-primary antialiased min-h-screen font-sans;
+    background-color: #0B0D10;
+    color: #F3F5F7;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(114, 167, 255, 0.25);
+    color: #F3F5F7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #292F38;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3D4552;
+  }
+}
+
+@layer components {
+  /* Restrained Card Surfaces */
+  .surface-card {
+    @apply bg-surface border border-border rounded-xl transition-all duration-200;
+  }
+  .surface-elevated {
+    @apply bg-surface-elevated border border-border rounded-xl;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150;
+    background-color: #72A7FF;
+    color: #0B0D10;
+    font-weight: 600;
+  }
+  .btn-primary:hover {
+    background-color: #8BB7FF;
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150;
+    background-color: #191F27;
+    color: #F3F5F7;
+    border: 1px solid #292F38;
+  }
+  .btn-secondary:hover {
+    background-color: #212832;
+    border-color: #3D4552;
+  }
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium text-secondary hover:text-primary hover:bg-surface-elevated transition-colors;
+  }
+
+  /* Status Badges */
+  .badge-success {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: rgba(75, 203, 145, 0.12);
+    color: #4BCB91;
+    border: 1px solid rgba(75, 203, 145, 0.25);
+  }
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: rgba(242, 184, 91, 0.12);
+    color: #F2B85B;
+    border: 1px solid rgba(242, 184, 91, 0.25);
+  }
+  .badge-error {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: rgba(240, 113, 120, 0.12);
+    color: #F07178;
+    border: 1px solid rgba(240, 113, 120, 0.25);
+  }
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-elevated text-secondary border border-border;
+  }
+
+  /* Form controls */
+  .input-field {
+    @apply w-full px-3.5 py-2.5 rounded-lg bg-surface border border-border text-primary text-sm placeholder-secondary focus:outline-none transition-colors;
+  }
+  .input-field:focus {
+    border-color: #72A7FF;
+  }
+
+  /* Tabular Numerals */
+  .t-num {
+    font-variant-numeric: tabular-nums;
+  }
+}

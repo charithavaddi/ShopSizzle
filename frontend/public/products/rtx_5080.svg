@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg_rtx" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#152418" />
+      <stop offset="60%" stop-color="#0f1611" />
+      <stop offset="100%" stop-color="#0b0d10" />
+    </radialGradient>
+    <linearGradient id="shroud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a303a" />
+      <stop offset="40%" stop-color="#1a1e24" />
+      <stop offset="100%" stop-color="#0d1014" />
+    </linearGradient>
+    <linearGradient id="nv_green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#76B900" />
+      <stop offset="100%" stop-color="#4BCB91" />
+    </linearGradient>
+    <filter id="shadow_gpu" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.75"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg_rtx)" />
+  <g filter="url(#shadow_gpu)">
+    <!-- Founders Edition Dual-Axial Flow Shroud -->
+    <rect x="90" y="200" width="420" height="200" rx="20" fill="url(#shroud)" stroke="#374151" stroke-width="2.5"/>
+    <!-- Hourglass spine cutout -->
+    <path d="M 270 200 C 290 270, 290 330, 270 400 L 330 400 C 310 330, 310 270, 330 200 Z" fill="#0b0d10" stroke="#4b5563" stroke-width="1.5"/>
+    
+    <!-- Fan 1 (Left Axial Fan) -->
+    <circle cx="190" cy="300" r="70" fill="#0d1015" stroke="#334155" stroke-width="2"/>
+    <circle cx="190" cy="300" r="24" fill="#1e242e" stroke="#64748b" stroke-width="1.5"/>
+    <!-- Blades -->
+    <path d="M 190 235 Q 210 260 190 280" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 255 300 Q 230 320 210 300" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 190 365 Q 170 340 190 320" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 125 300 Q 150 280 170 300" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Fan 2 (Right Axial Fan) -->
+    <circle cx="410" cy="300" r="70" fill="#0d1015" stroke="#334155" stroke-width="2"/>
+    <circle cx="410" cy="300" r="24" fill="#1e242e" stroke="#64748b" stroke-width="1.5"/>
+    <!-- Blades -->
+    <path d="M 410 235 Q 430 260 410 280" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 475 300 Q 450 320 430 300" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 410 365 Q 390 340 410 320" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 345 300 Q 370 280 390 300" stroke="#475569" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Illuminated Edge Logo -->
+    <rect x="250" y="210" width="100" height="18" rx="4" fill="#111827"/>
+    <text x="300" y="223" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="url(#nv_green)" text-anchor="middle" letter-spacing="1.5">GEFORCE RTX</text>
+    
+    <!-- Model badge -->
+    <text x="300" y="388" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="2">5080 &bull; 16GB GDDR7</text>
+  </g>
+  <text x="300" y="520" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#929BA8" text-anchor="middle" letter-spacing="2">BLACKWELL ARCHITECTURE &bull; DLSS 4</text>
+</svg>
